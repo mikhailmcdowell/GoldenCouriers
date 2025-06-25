@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import { Menu, X, Package, Clock, Globe, TrendingUp, ChevronRight, Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Homepage() {
@@ -24,8 +25,8 @@ export default function Homepage() {
                 <a href="#" className="text-blue-900 font-medium hover:text-amber-500 transition duration-300">HOME</a>
                 <a href="#" className="text-blue-900 font-medium hover:text-amber-500 transition duration-300">ABOUT</a>
                 <a href="#" className="text-blue-900 font-medium hover:text-amber-500 transition duration-300">RATES</a>
-                <a href="#" className="px-4 py-2 rounded-md bg-blue-900 text-white font-medium hover:bg-blue-800 transition duration-300">LOGIN</a>
-                <a href="#" className="px-4 py-2 rounded-md bg-amber-500 text-white font-medium hover:bg-amber-600 transition duration-300">REGISTER</a>
+                <Link href="/auth/login" className="px-4 py-2 rounded-md bg-blue-900 text-white font-medium hover:bg-blue-800 transition duration-300">LOGIN</Link>
+                <Link href="/auth/register" className="px-6 py-3 bg-amber-500 rounded-lg font-medium text-white hover:bg-amber-600 transition duration-300">REGISTER</Link>
               </div>
             </div>
             <div className="md:hidden">
@@ -45,16 +46,16 @@ export default function Homepage() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-blue-900 hover:bg-blue-50">HOME</a>
               <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-blue-900 hover:bg-blue-50">ABOUT</a>
-              <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-blue-900 hover:bg-blue-50">RATES</a>
+              <Link href="/rates" className="px-6 py-3 bg-white text-blue-900 rounded-lg font-medium hover:bg-blue-50 transition duration-300">RATES</Link>
               <a href="#" className="block px-3 py-2 rounded-md text-base font-medium bg-blue-900 text-white hover:bg-blue-800">LOGIN</a>
-              <a href="#" className="block px-3 py-2 rounded-md text-base font-medium bg-amber-500 text-white hover:bg-amber-600 mt-2">REGISTER</a>
+              <Link href="/register" className="px-6 py-3 bg-amber-500 rounded-lg font-medium text-white hover:bg-amber-600 transition duration-300">REGISTER</Link>
             </div>
           </div>
         )}
       </header>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+      {/* Hero Section with Fixed Wave */}
+      <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="md:flex md:items-center md:justify-between">
             <div className="md:w-1/2 mb-10 md:mb-0">
@@ -95,9 +96,14 @@ export default function Homepage() {
           </div>
         </div>
         
-        {/* Wave SVG */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full h-auto">
+        {/* Wave SVG with Fixed Positioning */}
+        <div className="absolute bottom-0 left-0 right-0 h-[120px] overflow-hidden">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 1440 120" 
+            className="w-full h-full"
+            preserveAspectRatio="none"
+          >
             <path 
               fill="#ffffff" 
               fillOpacity="1" 
@@ -107,8 +113,8 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-white">
+      {/* Services Section with Overlap Fix */}
+      <section className="py-16 bg-white relative z-10 -mt-[2px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-blue-900 mb-4">Our Premium Services</h2>
